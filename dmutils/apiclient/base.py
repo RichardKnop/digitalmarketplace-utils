@@ -49,7 +49,7 @@ class BaseAPIClient(object):
         try:
             response = requests.request(
                 method, url,
-                headers=headers, json=data, params=params)
+                headers=headers, json=data, params=params, verify=False)
             response.raise_for_status()
         except requests.RequestException as e:
             api_error = HTTPError(e.response)
